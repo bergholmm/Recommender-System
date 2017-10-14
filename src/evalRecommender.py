@@ -29,7 +29,12 @@ def evaluate(ds, targets, recommender):
 
     num_eval = 0
 
+    numTargets = len(targets)
+
     for t in targets:
+        if num_eval % 1000 == 0:
+            print('targets done: ', num_eval, numTargets)
+
         rel_songs = ds[t].indices
 
         if len(rel_songs) > 0:
